@@ -39,7 +39,9 @@
     <maven.compiler.target>1.6</maven.compiler.target>
     <maven.compiler.testSource>1.8</maven.compiler.testSource>
     <maven.compiler.testTarget>1.8</maven.compiler.testTarget>
-    <matched.xmldsig-core-bind.version>0.1-SNAPSHOT</matched.xmldsig-core-bind.version>
+    <java.bootstrap.classes>${java.home}/lib/rt.jar</java.bootstrap.classes>
+    <java.cryptographic.extension.classes>${java.home}/lib/jce.jar</java.cryptographic.extension.classes>
+    <java.secure.socket.extension.classes>${java.home}/lib/jsse.jar</java.secure.socket.extension.classes>
   </properties>
 
   <dependencyManagement />
@@ -75,18 +77,161 @@
       <plugins>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-compiler-plugin</artifactId>
-          <version>3.3</version>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-jar-plugin</artifactId>
           <version>2.6</version>
         </plugin>
+
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-javadoc-plugin</artifactId>
-          <version>2.10.3</version>
+          <configuration>
+            <sourceFileIncludes>
+              <include>com/github/jinahya/saml20/bind/assertion/**/*.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/auth/telephony/AuthnContextDeclarationBaseType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/auth/telephony/AuthnMethodBaseType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/auth/telephony/AuthenticatorBaseType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/auth/telephony/AuthenticatorTransportProtocolType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/ip/AuthnContextDeclarationBaseType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/ip/AuthnMethodBaseType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/ip/AuthenticatorBaseType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/ippword/AuthnContextDeclarationBaseType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/ippword/AuthnMethodBaseType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/ippword/AuthenticatorBaseType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/kerberos/AuthnContextDeclarationBaseType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/kerberos/AuthnMethodBaseType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/kerberos/PrincipalAuthenticationMechanismType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/kerberos/AuthenticatorBaseType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/kerberos/SharedSecretChallengeResponseType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/mobileonefactor/reg/AuthnContextDeclarationBaseType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/mobileonefactor/reg/AuthnMethodBaseType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/mobileonefactor/reg/AuthenticatorBaseType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/mobileonefactor/reg/ComplexAuthenticatorType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/mobileonefactor/reg/AuthenticatorTransportProtocolType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/mobileonefactor/reg/OperationalProtectionType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/mobileonefactor/reg/TechnicalProtectionBaseType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/mobileonefactor/reg/PrivateKeyProtectionType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/mobileonefactor/reg/SecretKeyProtectionType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/mobileonefactor/reg/KeyStorageType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/mobileonefactor/reg/SecurityAuditType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/mobileonefactor/reg/IdentificationType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/mobileonefactor/unreg/AuthnContextDeclarationBaseType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/mobileonefactor/unreg/AuthnMethodBaseType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/mobileonefactor/unreg/AuthenticatorBaseType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/mobileonefactor/unreg/ComplexAuthenticatorType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/mobileonefactor/unreg/AuthenticatorTransportProtocolType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/mobileonefactor/unreg/OperationalProtectionType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/mobileonefactor/unreg/TechnicalProtectionBaseType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/mobileonefactor/unreg/PrivateKeyProtectionType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/mobileonefactor/unreg/SecretKeyProtectionType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/mobileonefactor/unreg/KeyStorageType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/mobileonefactor/unreg/SecurityAuditType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/mobileonefactor/unreg/IdentificationType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/mobiletwofactor/reg/AuthnContextDeclarationBaseType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/mobiletwofactor/reg/AuthnMethodBaseType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/mobiletwofactor/reg/AuthenticatorBaseType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/mobiletwofactor/reg/ComplexAuthenticatorType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/mobiletwofactor/reg/AuthenticatorTransportProtocolType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/mobiletwofactor/reg/OperationalProtectionType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/mobiletwofactor/reg/TechnicalProtectionBaseType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/mobiletwofactor/reg/PrivateKeyProtectionType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/mobiletwofactor/reg/SecretKeyProtectionType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/mobiletwofactor/reg/KeyStorageType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/mobiletwofactor/reg/SecurityAuditType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/mobiletwofactor/reg/IdentificationType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/mobiletwofactor/unreg/AuthnContextDeclarationBaseType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/mobiletwofactor/unreg/AuthnMethodBaseType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/mobiletwofactor/unreg/AuthenticatorBaseType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/mobiletwofactor/unreg/ComplexAuthenticatorType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/mobiletwofactor/unreg/AuthenticatorTransportProtocolType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/mobiletwofactor/unreg/OperationalProtectionType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/mobiletwofactor/unreg/TechnicalProtectionBaseType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/mobiletwofactor/unreg/PrivateKeyProtectionType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/mobiletwofactor/unreg/SecretKeyProtectionType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/mobiletwofactor/unreg/KeyStorageType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/mobiletwofactor/unreg/SecurityAuditType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/mobiletwofactor/unreg/IdentificationType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/nomad/telephony/AuthnContextDeclarationBaseType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/nomad/telephony/AuthnMethodBaseType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/nomad/telephony/AuthenticatorBaseType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/nomad/telephony/AuthenticatorTransportProtocolType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/personal/telephony/AuthnContextDeclarationBaseType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/personal/telephony/AuthnMethodBaseType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/personal/telephony/AuthenticatorBaseType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/personal/telephony/AuthenticatorTransportProtocolType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/pgp/AuthnContextDeclarationBaseType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/pgp/AuthnMethodBaseType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/pgp/PrincipalAuthenticationMechanismType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/pgp/AuthenticatorBaseType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/pgp/PublicKeyType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/ppt/AuthnContextDeclarationBaseType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/ppt/AuthnMethodBaseType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/ppt/AuthenticatorTransportProtocolType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/pword/AuthnContextDeclarationBaseType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/pword/AuthnMethodBaseType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/pword/AuthenticatorBaseType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/session/AuthnContextDeclarationBaseType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/session/AuthnMethodBaseType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/session/AuthenticatorBaseType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/smartcard/AuthnContextDeclarationBaseType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/smartcard/AuthnMethodBaseType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/smartcard/PrincipalAuthenticationMechanismType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/smartcardpki/AuthnContextDeclarationBaseType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/smartcardpki/AuthnMethodBaseType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/smartcardpki/TechnicalProtectionBaseType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/smartcardpki/PrincipalAuthenticationMechanismType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/smartcardpki/AuthenticatorBaseType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/smartcardpki/PrivateKeyProtectionType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/smartcardpki/KeyActivationType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/smartcardpki/KeyStorageType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/softwarepki/AuthnContextDeclarationBaseType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/softwarepki/AuthnMethodBaseType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/softwarepki/TechnicalProtectionBaseType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/softwarepki/PrincipalAuthenticationMechanismType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/softwarepki/AuthenticatorBaseType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/softwarepki/PrivateKeyProtectionType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/softwarepki/KeyActivationType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/softwarepki/KeyStorageType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/spki/AuthnContextDeclarationBaseType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/spki/AuthnMethodBaseType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/spki/PrincipalAuthenticationMechanismType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/spki/AuthenticatorBaseType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/spki/PublicKeyType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/srp/AuthnContextDeclarationBaseType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/srp/AuthnMethodBaseType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/srp/PrincipalAuthenticationMechanismType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/srp/AuthenticatorBaseType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/srp/SharedSecretChallengeResponseType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/sslcert/AuthnContextDeclarationBaseType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/sslcert/AuthnMethodBaseType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/sslcert/PrincipalAuthenticationMechanismType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/sslcert/AuthenticatorBaseType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/sslcert/PublicKeyType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/sslcert/AuthenticatorTransportProtocolType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/telephony/AuthnContextDeclarationBaseType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/telephony/AuthnMethodBaseType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/telephony/AuthenticatorBaseType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/telephony/AuthenticatorTransportProtocolType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/timesync/AuthnContextDeclarationBaseType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/timesync/AuthnMethodBaseType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/timesync/PrincipalAuthenticationMechanismType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/timesync/TokenType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/timesync/TimeSyncTokenType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/x509/AuthnContextDeclarationBaseType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/x509/AuthnMethodBaseType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/x509/PrincipalAuthenticationMechanismType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/x509/AuthenticatorBaseType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/x509/PublicKeyType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/xmldsig/AuthnContextDeclarationBaseType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/xmldsig/AuthnMethodBaseType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/xmldsig/PrincipalAuthenticationMechanismType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/xmldsig/AuthenticatorBaseType.java</include>
+              <include>com/github/jinahya/saml20/bind/authn/context/xmldsig/PublicKeyType.java</include>
+              <include>com/github/jinahya/saml20/bind/dce/**/*.java</include>
+              <include>com/github/jinahya/saml20/bind/ecp/**/*.java</include>
+              <include>com/github/jinahya/saml20/bind/metadata/**/*.java</include>
+              <include>com/github/jinahya/saml20/bind/protocol/**/*.java</include>
+            </sourceFileIncludes>
+          </configuration>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
@@ -166,8 +311,11 @@
               <goal>generate</goal>
             </goals>
             <configuration>
-              <schemaDirectory>src/main/xsd</schemaDirectory>
               <bindingDirectory>src/main/xjb</bindingDirectory>
+              <schemaDirectory>src/main/xsd</schemaDirectory>
+              <schemaExcludes>
+                <include>saml-schema-authn-context-types-2.0.xsd</include>
+              </schemaExcludes>
               <useDependenciesAsEpisodes>true</useDependenciesAsEpisodes>
             </configuration>
           </execution>
@@ -194,13 +342,166 @@
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.3</version>
+        <configuration>
+          <includes>
+            <include>com/github/jinahya/saml20/bind/assertion/**/*.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/auth/telephony/AuthnContextDeclarationBaseType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/auth/telephony/AuthnMethodBaseType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/auth/telephony/AuthenticatorBaseType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/auth/telephony/AuthenticatorTransportProtocolType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/ip/AuthnContextDeclarationBaseType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/ip/AuthnMethodBaseType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/ip/AuthenticatorBaseType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/ippword/AuthnContextDeclarationBaseType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/ippword/AuthnMethodBaseType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/ippword/AuthenticatorBaseType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/kerberos/AuthnContextDeclarationBaseType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/kerberos/AuthnMethodBaseType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/kerberos/PrincipalAuthenticationMechanismType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/kerberos/AuthenticatorBaseType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/kerberos/SharedSecretChallengeResponseType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/mobileonefactor/reg/AuthnContextDeclarationBaseType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/mobileonefactor/reg/AuthnMethodBaseType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/mobileonefactor/reg/AuthenticatorBaseType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/mobileonefactor/reg/ComplexAuthenticatorType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/mobileonefactor/reg/AuthenticatorTransportProtocolType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/mobileonefactor/reg/OperationalProtectionType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/mobileonefactor/reg/TechnicalProtectionBaseType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/mobileonefactor/reg/PrivateKeyProtectionType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/mobileonefactor/reg/SecretKeyProtectionType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/mobileonefactor/reg/KeyStorageType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/mobileonefactor/reg/SecurityAuditType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/mobileonefactor/reg/IdentificationType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/mobileonefactor/unreg/AuthnContextDeclarationBaseType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/mobileonefactor/unreg/AuthnMethodBaseType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/mobileonefactor/unreg/AuthenticatorBaseType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/mobileonefactor/unreg/ComplexAuthenticatorType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/mobileonefactor/unreg/AuthenticatorTransportProtocolType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/mobileonefactor/unreg/OperationalProtectionType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/mobileonefactor/unreg/TechnicalProtectionBaseType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/mobileonefactor/unreg/PrivateKeyProtectionType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/mobileonefactor/unreg/SecretKeyProtectionType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/mobileonefactor/unreg/KeyStorageType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/mobileonefactor/unreg/SecurityAuditType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/mobileonefactor/unreg/IdentificationType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/mobiletwofactor/reg/AuthnContextDeclarationBaseType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/mobiletwofactor/reg/AuthnMethodBaseType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/mobiletwofactor/reg/AuthenticatorBaseType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/mobiletwofactor/reg/ComplexAuthenticatorType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/mobiletwofactor/reg/AuthenticatorTransportProtocolType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/mobiletwofactor/reg/OperationalProtectionType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/mobiletwofactor/reg/TechnicalProtectionBaseType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/mobiletwofactor/reg/PrivateKeyProtectionType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/mobiletwofactor/reg/SecretKeyProtectionType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/mobiletwofactor/reg/KeyStorageType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/mobiletwofactor/reg/SecurityAuditType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/mobiletwofactor/reg/IdentificationType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/mobiletwofactor/unreg/AuthnContextDeclarationBaseType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/mobiletwofactor/unreg/AuthnMethodBaseType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/mobiletwofactor/unreg/AuthenticatorBaseType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/mobiletwofactor/unreg/ComplexAuthenticatorType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/mobiletwofactor/unreg/AuthenticatorTransportProtocolType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/mobiletwofactor/unreg/OperationalProtectionType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/mobiletwofactor/unreg/TechnicalProtectionBaseType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/mobiletwofactor/unreg/PrivateKeyProtectionType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/mobiletwofactor/unreg/SecretKeyProtectionType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/mobiletwofactor/unreg/KeyStorageType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/mobiletwofactor/unreg/SecurityAuditType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/mobiletwofactor/unreg/IdentificationType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/nomad/telephony/AuthnContextDeclarationBaseType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/nomad/telephony/AuthnMethodBaseType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/nomad/telephony/AuthenticatorBaseType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/nomad/telephony/AuthenticatorTransportProtocolType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/personal/telephony/AuthnContextDeclarationBaseType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/personal/telephony/AuthnMethodBaseType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/personal/telephony/AuthenticatorBaseType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/personal/telephony/AuthenticatorTransportProtocolType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/pgp/AuthnContextDeclarationBaseType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/pgp/AuthnMethodBaseType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/pgp/PrincipalAuthenticationMechanismType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/pgp/AuthenticatorBaseType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/pgp/PublicKeyType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/ppt/AuthnContextDeclarationBaseType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/ppt/AuthnMethodBaseType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/ppt/AuthenticatorTransportProtocolType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/pword/AuthnContextDeclarationBaseType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/pword/AuthnMethodBaseType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/pword/AuthenticatorBaseType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/session/AuthnContextDeclarationBaseType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/session/AuthnMethodBaseType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/session/AuthenticatorBaseType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/smartcard/AuthnContextDeclarationBaseType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/smartcard/AuthnMethodBaseType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/smartcard/PrincipalAuthenticationMechanismType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/smartcardpki/AuthnContextDeclarationBaseType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/smartcardpki/AuthnMethodBaseType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/smartcardpki/TechnicalProtectionBaseType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/smartcardpki/PrincipalAuthenticationMechanismType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/smartcardpki/AuthenticatorBaseType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/smartcardpki/PrivateKeyProtectionType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/smartcardpki/KeyActivationType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/smartcardpki/KeyStorageType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/softwarepki/AuthnContextDeclarationBaseType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/softwarepki/AuthnMethodBaseType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/softwarepki/TechnicalProtectionBaseType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/softwarepki/PrincipalAuthenticationMechanismType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/softwarepki/AuthenticatorBaseType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/softwarepki/PrivateKeyProtectionType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/softwarepki/KeyActivationType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/softwarepki/KeyStorageType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/spki/AuthnContextDeclarationBaseType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/spki/AuthnMethodBaseType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/spki/PrincipalAuthenticationMechanismType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/spki/AuthenticatorBaseType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/spki/PublicKeyType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/srp/AuthnContextDeclarationBaseType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/srp/AuthnMethodBaseType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/srp/PrincipalAuthenticationMechanismType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/srp/AuthenticatorBaseType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/srp/SharedSecretChallengeResponseType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/sslcert/AuthnContextDeclarationBaseType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/sslcert/AuthnMethodBaseType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/sslcert/PrincipalAuthenticationMechanismType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/sslcert/AuthenticatorBaseType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/sslcert/PublicKeyType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/sslcert/AuthenticatorTransportProtocolType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/telephony/AuthnContextDeclarationBaseType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/telephony/AuthnMethodBaseType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/telephony/AuthenticatorBaseType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/telephony/AuthenticatorTransportProtocolType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/timesync/AuthnContextDeclarationBaseType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/timesync/AuthnMethodBaseType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/timesync/PrincipalAuthenticationMechanismType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/timesync/TokenType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/timesync/TimeSyncTokenType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/x509/AuthnContextDeclarationBaseType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/x509/AuthnMethodBaseType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/x509/PrincipalAuthenticationMechanismType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/x509/AuthenticatorBaseType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/x509/PublicKeyType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/xmldsig/AuthnContextDeclarationBaseType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/xmldsig/AuthnMethodBaseType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/xmldsig/PrincipalAuthenticationMechanismType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/xmldsig/AuthenticatorBaseType.java</include>
+            <include>com/github/jinahya/saml20/bind/authn/context/xmldsig/PublicKeyType.java</include>
+            <include>com/github/jinahya/saml20/bind/dce/**/*.java</include>
+            <include>com/github/jinahya/saml20/bind/ecp/**/*.java</include>
+            <include>com/github/jinahya/saml20/bind/metadata/**/*.java</include>
+            <include>com/github/jinahya/saml20/bind/protocol/**/*.java</include>
+          </includes>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-shade-plugin</artifactId>
         <version>2.4.2</version>
         <executions>
           <execution>
             <phase>package</phase>
             <goals>
-              <goal>shade</goal>
+              <!--<goal>shade</goal>-->
             </goals>
             <configuration>
               <artifactSet>
@@ -210,15 +511,198 @@
                   <exluce>com.github.jinahya:xmlenc-core-bind</exluce>
                 </excludes>
               </artifactSet>
-              <relocations>
+              <!--              <relocations>
                 <relocation>
                   <pattern>generated</pattern>
                   <shadedPattern>com.github.jinahya.saxml20.bind</shadedPattern>
                 </relocation>
-              </relocations>
+              </relocations>-->
             </configuration>
           </execution>
         </executions>
+      </plugin>
+      <plugin>
+        <groupId>com.github.wvengen</groupId>
+        <artifactId>proguard-maven-plugin</artifactId>
+        <version>2.0.11</version>
+        <executions>
+          <execution>
+            <id>proguard</id>
+            <phase>package</phase>
+            <goals>
+              <goal>proguard</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <addMavenDescriptor>true</addMavenDescriptor>
+          <options>
+            <option>
+              -dontobfuscate
+              -dontoptimize
+              -keepattributes *Annotation*
+              -keepattributes Signature
+              -keepattributes InnerClasses
+              -keep class com.github.jinahya.saml20.bind.assertion.*
+              -keep class com.github.jinahya.saml20.bind.authn.context.auth.telephony.AuthnContextDeclarationBaseType
+              -keep class com.github.jinahya.saml20.bind.authn.context.auth.telephony.AuthnMethodBaseType
+              -keep class com.github.jinahya.saml20.bind.authn.context.auth.telephony.AuthenticatorBaseType
+              -keep class com.github.jinahya.saml20.bind.authn.context.auth.telephony.AuthenticatorTransportProtocolType
+              -keep class com.github.jinahya.saml20.bind.authn.context.ip.AuthnContextDeclarationBaseType
+              -keep class com.github.jinahya.saml20.bind.authn.context.ip.AuthnMethodBaseType
+              -keep class com.github.jinahya.saml20.bind.authn.context.ip.AuthenticatorBaseType
+              -keep class com.github.jinahya.saml20.bind.authn.context.ippword.AuthnContextDeclarationBaseType
+              -keep class com.github.jinahya.saml20.bind.authn.context.ippword.AuthnMethodBaseType
+              -keep class com.github.jinahya.saml20.bind.authn.context.ippword.AuthenticatorBaseType
+              -keep class com.github.jinahya.saml20.bind.authn.context.kerberos.AuthnContextDeclarationBaseType
+              -keep class com.github.jinahya.saml20.bind.authn.context.kerberos.AuthnMethodBaseType
+              -keep class com.github.jinahya.saml20.bind.authn.context.kerberos.PrincipalAuthenticationMechanismType
+              -keep class com.github.jinahya.saml20.bind.authn.context.kerberos.AuthenticatorBaseType
+              -keep class com.github.jinahya.saml20.bind.authn.context.kerberos.SharedSecretChallengeResponseType
+              -keep class com.github.jinahya.saml20.bind.authn.context.mobileonefactor.reg.AuthnContextDeclarationBaseType
+              -keep class com.github.jinahya.saml20.bind.authn.context.mobileonefactor.reg.AuthnMethodBaseType
+              -keep class com.github.jinahya.saml20.bind.authn.context.mobileonefactor.reg.AuthenticatorBaseType
+              -keep class com.github.jinahya.saml20.bind.authn.context.mobileonefactor.reg.ComplexAuthenticatorType
+              -keep class com.github.jinahya.saml20.bind.authn.context.mobileonefactor.reg.AuthenticatorTransportProtocolType
+              -keep class com.github.jinahya.saml20.bind.authn.context.mobileonefactor.reg.OperationalProtectionType
+              -keep class com.github.jinahya.saml20.bind.authn.context.mobileonefactor.reg.TechnicalProtectionBaseType
+              -keep class com.github.jinahya.saml20.bind.authn.context.mobileonefactor.reg.PrivateKeyProtectionType
+              -keep class com.github.jinahya.saml20.bind.authn.context.mobileonefactor.reg.SecretKeyProtectionType
+              -keep class com.github.jinahya.saml20.bind.authn.context.mobileonefactor.reg.KeyStorageType
+              -keep class com.github.jinahya.saml20.bind.authn.context.mobileonefactor.reg.SecurityAuditType
+              -keep class com.github.jinahya.saml20.bind.authn.context.mobileonefactor.reg.IdentificationType
+              -keep class com.github.jinahya.saml20.bind.authn.context.mobileonefactor.unreg.AuthnContextDeclarationBaseType
+              -keep class com.github.jinahya.saml20.bind.authn.context.mobileonefactor.unreg.AuthnMethodBaseType
+              -keep class com.github.jinahya.saml20.bind.authn.context.mobileonefactor.unreg.AuthenticatorBaseType
+              -keep class com.github.jinahya.saml20.bind.authn.context.mobileonefactor.unreg.ComplexAuthenticatorType
+              -keep class com.github.jinahya.saml20.bind.authn.context.mobileonefactor.unreg.AuthenticatorTransportProtocolType
+              -keep class com.github.jinahya.saml20.bind.authn.context.mobileonefactor.unreg.OperationalProtectionType
+              -keep class com.github.jinahya.saml20.bind.authn.context.mobileonefactor.unreg.TechnicalProtectionBaseType
+              -keep class com.github.jinahya.saml20.bind.authn.context.mobileonefactor.unreg.PrivateKeyProtectionType
+              -keep class com.github.jinahya.saml20.bind.authn.context.mobileonefactor.unreg.SecretKeyProtectionType
+              -keep class com.github.jinahya.saml20.bind.authn.context.mobileonefactor.unreg.KeyStorageType
+              -keep class com.github.jinahya.saml20.bind.authn.context.mobileonefactor.unreg.SecurityAuditType
+              -keep class com.github.jinahya.saml20.bind.authn.context.mobileonefactor.unreg.IdentificationType
+              -keep class com.github.jinahya.saml20.bind.authn.context.mobiletwofactor.reg.AuthnContextDeclarationBaseType
+              -keep class com.github.jinahya.saml20.bind.authn.context.mobiletwofactor.reg.AuthnMethodBaseType
+              -keep class com.github.jinahya.saml20.bind.authn.context.mobiletwofactor.reg.AuthenticatorBaseType
+              -keep class com.github.jinahya.saml20.bind.authn.context.mobiletwofactor.reg.ComplexAuthenticatorType
+              -keep class com.github.jinahya.saml20.bind.authn.context.mobiletwofactor.reg.AuthenticatorTransportProtocolType
+              -keep class com.github.jinahya.saml20.bind.authn.context.mobiletwofactor.reg.OperationalProtectionType
+              -keep class com.github.jinahya.saml20.bind.authn.context.mobiletwofactor.reg.TechnicalProtectionBaseType
+              -keep class com.github.jinahya.saml20.bind.authn.context.mobiletwofactor.reg.PrivateKeyProtectionType
+              -keep class com.github.jinahya.saml20.bind.authn.context.mobiletwofactor.reg.SecretKeyProtectionType
+              -keep class com.github.jinahya.saml20.bind.authn.context.mobiletwofactor.reg.KeyStorageType
+              -keep class com.github.jinahya.saml20.bind.authn.context.mobiletwofactor.reg.SecurityAuditType
+              -keep class com.github.jinahya.saml20.bind.authn.context.mobiletwofactor.reg.IdentificationType
+              -keep class com.github.jinahya.saml20.bind.authn.context.mobiletwofactor.unreg.AuthnContextDeclarationBaseType
+              -keep class com.github.jinahya.saml20.bind.authn.context.mobiletwofactor.unreg.AuthnMethodBaseType
+              -keep class com.github.jinahya.saml20.bind.authn.context.mobiletwofactor.unreg.AuthenticatorBaseType
+              -keep class com.github.jinahya.saml20.bind.authn.context.mobiletwofactor.unreg.ComplexAuthenticatorType
+              -keep class com.github.jinahya.saml20.bind.authn.context.mobiletwofactor.unreg.AuthenticatorTransportProtocolType
+              -keep class com.github.jinahya.saml20.bind.authn.context.mobiletwofactor.unreg.OperationalProtectionType
+              -keep class com.github.jinahya.saml20.bind.authn.context.mobiletwofactor.unreg.TechnicalProtectionBaseType
+              -keep class com.github.jinahya.saml20.bind.authn.context.mobiletwofactor.unreg.PrivateKeyProtectionType
+              -keep class com.github.jinahya.saml20.bind.authn.context.mobiletwofactor.unreg.SecretKeyProtectionType
+              -keep class com.github.jinahya.saml20.bind.authn.context.mobiletwofactor.unreg.KeyStorageType
+              -keep class com.github.jinahya.saml20.bind.authn.context.mobiletwofactor.unreg.SecurityAuditType
+              -keep class com.github.jinahya.saml20.bind.authn.context.mobiletwofactor.unreg.IdentificationType
+              -keep class com.github.jinahya.saml20.bind.authn.context.nomad.telephony.AuthnContextDeclarationBaseType
+              -keep class com.github.jinahya.saml20.bind.authn.context.nomad.telephony.AuthnMethodBaseType
+              -keep class com.github.jinahya.saml20.bind.authn.context.nomad.telephony.AuthenticatorBaseType
+              -keep class com.github.jinahya.saml20.bind.authn.context.nomad.telephony.AuthenticatorTransportProtocolType
+              -keep class com.github.jinahya.saml20.bind.authn.context.personal.telephony.AuthnContextDeclarationBaseType
+              -keep class com.github.jinahya.saml20.bind.authn.context.personal.telephony.AuthnMethodBaseType
+              -keep class com.github.jinahya.saml20.bind.authn.context.personal.telephony.AuthenticatorBaseType
+              -keep class com.github.jinahya.saml20.bind.authn.context.personal.telephony.AuthenticatorTransportProtocolType
+              -keep class com.github.jinahya.saml20.bind.authn.context.pgp.AuthnContextDeclarationBaseType
+              -keep class com.github.jinahya.saml20.bind.authn.context.pgp.AuthnMethodBaseType
+              -keep class com.github.jinahya.saml20.bind.authn.context.pgp.PrincipalAuthenticationMechanismType
+              -keep class com.github.jinahya.saml20.bind.authn.context.pgp.AuthenticatorBaseType
+              -keep class com.github.jinahya.saml20.bind.authn.context.pgp.PublicKeyType
+              -keep class com.github.jinahya.saml20.bind.authn.context.ppt.AuthnContextDeclarationBaseType
+              -keep class com.github.jinahya.saml20.bind.authn.context.ppt.AuthnMethodBaseType
+              -keep class com.github.jinahya.saml20.bind.authn.context.ppt.AuthenticatorTransportProtocolType
+              -keep class com.github.jinahya.saml20.bind.authn.context.pword.AuthnContextDeclarationBaseType
+              -keep class com.github.jinahya.saml20.bind.authn.context.pword.AuthnMethodBaseType
+              -keep class com.github.jinahya.saml20.bind.authn.context.pword.AuthenticatorBaseType
+              -keep class com.github.jinahya.saml20.bind.authn.context.session.AuthnContextDeclarationBaseType
+              -keep class com.github.jinahya.saml20.bind.authn.context.session.AuthnMethodBaseType
+              -keep class com.github.jinahya.saml20.bind.authn.context.session.AuthenticatorBaseType
+              -keep class com.github.jinahya.saml20.bind.authn.context.smartcard.AuthnContextDeclarationBaseType
+              -keep class com.github.jinahya.saml20.bind.authn.context.smartcard.AuthnMethodBaseType
+              -keep class com.github.jinahya.saml20.bind.authn.context.smartcard.PrincipalAuthenticationMechanismType
+              -keep class com.github.jinahya.saml20.bind.authn.context.smartcardpki.AuthnContextDeclarationBaseType
+              -keep class com.github.jinahya.saml20.bind.authn.context.smartcardpki.AuthnMethodBaseType
+              -keep class com.github.jinahya.saml20.bind.authn.context.smartcardpki.TechnicalProtectionBaseType
+              -keep class com.github.jinahya.saml20.bind.authn.context.smartcardpki.PrincipalAuthenticationMechanismType
+              -keep class com.github.jinahya.saml20.bind.authn.context.smartcardpki.AuthenticatorBaseType
+              -keep class com.github.jinahya.saml20.bind.authn.context.smartcardpki.PrivateKeyProtectionType
+              -keep class com.github.jinahya.saml20.bind.authn.context.smartcardpki.KeyActivationType
+              -keep class com.github.jinahya.saml20.bind.authn.context.smartcardpki.KeyStorageType
+              -keep class com.github.jinahya.saml20.bind.authn.context.softwarepki.AuthnContextDeclarationBaseType
+              -keep class com.github.jinahya.saml20.bind.authn.context.softwarepki.AuthnMethodBaseType
+              -keep class com.github.jinahya.saml20.bind.authn.context.softwarepki.TechnicalProtectionBaseType
+              -keep class com.github.jinahya.saml20.bind.authn.context.softwarepki.PrincipalAuthenticationMechanismType
+              -keep class com.github.jinahya.saml20.bind.authn.context.softwarepki.AuthenticatorBaseType
+              -keep class com.github.jinahya.saml20.bind.authn.context.softwarepki.PrivateKeyProtectionType
+              -keep class com.github.jinahya.saml20.bind.authn.context.softwarepki.KeyActivationType
+              -keep class com.github.jinahya.saml20.bind.authn.context.softwarepki.KeyStorageType
+              -keep class com.github.jinahya.saml20.bind.authn.context.spki.AuthnContextDeclarationBaseType
+              -keep class com.github.jinahya.saml20.bind.authn.context.spki.AuthnMethodBaseType
+              -keep class com.github.jinahya.saml20.bind.authn.context.spki.PrincipalAuthenticationMechanismType
+              -keep class com.github.jinahya.saml20.bind.authn.context.spki.AuthenticatorBaseType
+              -keep class com.github.jinahya.saml20.bind.authn.context.spki.PublicKeyType
+              -keep class com.github.jinahya.saml20.bind.authn.context.srp.AuthnContextDeclarationBaseType
+              -keep class com.github.jinahya.saml20.bind.authn.context.srp.AuthnMethodBaseType
+              -keep class com.github.jinahya.saml20.bind.authn.context.srp.PrincipalAuthenticationMechanismType
+              -keep class com.github.jinahya.saml20.bind.authn.context.srp.AuthenticatorBaseType
+              -keep class com.github.jinahya.saml20.bind.authn.context.srp.SharedSecretChallengeResponseType
+              -keep class com.github.jinahya.saml20.bind.authn.context.sslcert.AuthnContextDeclarationBaseType
+              -keep class com.github.jinahya.saml20.bind.authn.context.sslcert.AuthnMethodBaseType
+              -keep class com.github.jinahya.saml20.bind.authn.context.sslcert.PrincipalAuthenticationMechanismType
+              -keep class com.github.jinahya.saml20.bind.authn.context.sslcert.AuthenticatorBaseType
+              -keep class com.github.jinahya.saml20.bind.authn.context.sslcert.PublicKeyType
+              -keep class com.github.jinahya.saml20.bind.authn.context.sslcert.AuthenticatorTransportProtocolType
+              -keep class com.github.jinahya.saml20.bind.authn.context.telephony.AuthnContextDeclarationBaseType
+              -keep class com.github.jinahya.saml20.bind.authn.context.telephony.AuthnMethodBaseType
+              -keep class com.github.jinahya.saml20.bind.authn.context.telephony.AuthenticatorBaseType
+              -keep class com.github.jinahya.saml20.bind.authn.context.telephony.AuthenticatorTransportProtocolType
+              -keep class com.github.jinahya.saml20.bind.authn.context.timesync.AuthnContextDeclarationBaseType
+              -keep class com.github.jinahya.saml20.bind.authn.context.timesync.AuthnMethodBaseType
+              -keep class com.github.jinahya.saml20.bind.authn.context.timesync.PrincipalAuthenticationMechanismType
+              -keep class com.github.jinahya.saml20.bind.authn.context.timesync.TokenType
+              -keep class com.github.jinahya.saml20.bind.authn.context.timesync.TimeSyncTokenType
+              -keep class com.github.jinahya.saml20.bind.authn.context.x509.AuthnContextDeclarationBaseType
+              -keep class com.github.jinahya.saml20.bind.authn.context.x509.AuthnMethodBaseType
+              -keep class com.github.jinahya.saml20.bind.authn.context.x509.PrincipalAuthenticationMechanismType
+              -keep class com.github.jinahya.saml20.bind.authn.context.x509.AuthenticatorBaseType
+              -keep class com.github.jinahya.saml20.bind.authn.context.x509.PublicKeyType
+              -keep class com.github.jinahya.saml20.bind.authn.context.xmldsig.AuthnContextDeclarationBaseType
+              -keep class com.github.jinahya.saml20.bind.authn.context.xmldsig.AuthnMethodBaseType
+              -keep class com.github.jinahya.saml20.bind.authn.context.xmldsig.PrincipalAuthenticationMechanismType
+              -keep class com.github.jinahya.saml20.bind.authn.context.xmldsig.AuthenticatorBaseType
+              -keep class com.github.jinahya.saml20.bind.authn.context.xmldsig.PublicKeyType
+              -keep class com.github.jinahya.saml20.bind.dce.*
+              -keep class com.github.jinahya.saml20.bind.epc.*
+              -keep class com.github.jinahya.saml20.bind.metadata.*
+              -keep class com.github.jinahya.saml20.bind.protocol.*
+            </option>
+          </options>
+          <libs>
+            <lib>${java.bootstrap.classes}</lib>
+            <lib>${java.cryptographic.extension.classes}</lib>
+            <lib>${java.secure.socket.extension.classes}</lib>
+          </libs>
+        </configuration>
+        <dependencies>
+          <dependency>
+            <groupId>net.sf.proguard</groupId>
+            <artifactId>proguard-base</artifactId>
+            <version>5.2.1</version>
+            <scope>runtime</scope>
+          </dependency>
+        </dependencies>
       </plugin>
     </plugins>
   </build>

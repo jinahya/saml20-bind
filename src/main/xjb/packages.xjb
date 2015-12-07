@@ -1,213 +1,156 @@
 <jaxb:bindings xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
-               jaxb:version="2.0"
-               xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+               jaxb:version="2.1"
                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                xsi:schemaLocation="http://java.sun.com/xml/ns/jaxb http://java.sun.com/xml/ns/jaxb/bindingschema_2_0.xsd">
-
-
-  <!--  <jaxb:bindings schemaLocation="../xsd/saml-schema-authn-context-types-2.0.xsd">
+  <jaxb:bindings namespace="urn:oasis:names:tc:SAML:2.0:assertion" schemaLocation="../xsd/saml-schema-assertion-2.0.xsd">
     <jaxb:schemaBindings>
-      <jaxb:package name="com.github.jinahya.scxml20.bind"/>
+      <jaxb:package name="com.github.jinahya.saml20.bind.assertion"/>
     </jaxb:schemaBindings>
-  </jaxb:bindings>-->
-
-  <jaxb:bindings namespace="urn:oasis:names:tc:SAML:2.0:ac"
-                 schemaLocation="../xsd/saml-schema-authn-context-2.0.xsd">
+  </jaxb:bindings>
+  <jaxb:bindings namespace="urn:oasis:names:tc:SAML:2.0:ac" schemaLocation="../xsd/saml-schema-authn-context-2.0.xsd">
     <jaxb:schemaBindings>
-      <jaxb:package name="com.github.jinahya.scxml20.bind.ac"/>
+      <jaxb:package name="com.github.jinahya.saml20.bind.authn.context"/>
     </jaxb:schemaBindings>
   </jaxb:bindings>
 
-
-  <jaxb:bindings namespace="urn:oasis:names:tc:SAML:2.0:ac:classes:AuthenticatedTelephony"
-                 schemaLocation="../xsd/saml-schema-authn-context-auth-telephony-2.0.xsd">
+  <jaxb:bindings namespace="urn:oasis:names:tc:SAML:2.0:ac:classes:AuthenticatedTelephony" schemaLocation="../xsd/saml-schema-authn-context-auth-telephony-2.0.xsd">
     <jaxb:schemaBindings>
-      <jaxb:package name="com.github.jinahya.scxml20.bind.ac.classes.authenticatedtelephony"/>
+      <jaxb:package name="com.github.jinahya.saml20.bind.authn.context.auth.telephony"/>
     </jaxb:schemaBindings>
   </jaxb:bindings>
-
-  <jaxb:bindings namespace="urn:oasis:names:tc:SAML:2.0:ac:classes:InternetProtocol"
-                 schemaLocation="../xsd/saml-schema-authn-context-ip-2.0.xsd">
+  <jaxb:bindings namespace="urn:oasis:names:tc:SAML:2.0:ac:classes:InternetProtocol" schemaLocation="../xsd/saml-schema-authn-context-ip-2.0.xsd">
     <jaxb:schemaBindings>
-      <jaxb:package name="com.github.jinahya.scxml20.bind.ac.classes.internetprotocol"/>
+      <jaxb:package name="com.github.jinahya.saml20.bind.authn.context.ip"/>
     </jaxb:schemaBindings>
   </jaxb:bindings>
-
-  <jaxb:bindings namespace="urn:oasis:names:tc:SAML:2.0:ac:classes:InternetProtocolPassword"
-                 schemaLocation="../xsd/saml-schema-authn-context-ippword-2.0.xsd">
+  <jaxb:bindings namespace="urn:oasis:names:tc:SAML:2.0:ac:classes:InternetProtocolPassword" schemaLocation="../xsd/saml-schema-authn-context-ippword-2.0.xsd">
     <jaxb:schemaBindings>
-      <jaxb:package name="com.github.jinahya.scxml20.bind.ac.classes.internetprotocolpassword"/>
+      <jaxb:package name="com.github.jinahya.saml20.bind.authn.context.ippword"/>
     </jaxb:schemaBindings>
   </jaxb:bindings>
-  <jaxb:bindings namespace="urn:oasis:names:tc:SAML:2.0:ac:classes:Kerberos"
-                 schemaLocation="../xsd/saml-schema-authn-context-kerberos-2.0.xsd">
+  <jaxb:bindings namespace="urn:oasis:names:tc:SAML:2.0:ac:classes:Kerberos" schemaLocation="../xsd/saml-schema-authn-context-kerberos-2.0.xsd">
     <jaxb:schemaBindings>
-      <jaxb:package name="com.github.jinahya.scxml20.bind.ac.classes.kerberros"/>
+      <jaxb:package name="com.github.jinahya.saml20.bind.authn.context.kerberos"/>
     </jaxb:schemaBindings>
   </jaxb:bindings>
-
-
-  <jaxb:bindings namespace="urn:oasis:names:tc:SAML:2.0:ac:classes:MobileOneFactorContract"
-                 schemaLocation="../xsd/saml-schema-authn-context-mobileonefactor-reg-2.0.xsd">
+  <jaxb:bindings namespace="urn:oasis:names:tc:SAML:2.0:ac:classes:MobileOneFactorContract" schemaLocation="../xsd/saml-schema-authn-context-mobileonefactor-reg-2.0.xsd">
     <jaxb:schemaBindings>
-      <jaxb:package name="com.github.jinahya.scxml20.bind.ac.classes.mobileonefactorcontract"/>
+      <jaxb:package name="com.github.jinahya.saml20.bind.authn.context.mobileonefactor.reg"/>
     </jaxb:schemaBindings>
   </jaxb:bindings>
-  <jaxb:bindings namespace="urn:oasis:names:tc:SAML:2.0:ac:classes:MobileOneFactorUnregistered"
-                 schemaLocation="../xsd/saml-schema-authn-context-mobileonefactor-unreg-2.0.xsd">
+  <jaxb:bindings namespace="urn:oasis:names:tc:SAML:2.0:ac:classes:MobileOneFactorUnregistered" schemaLocation="../xsd/saml-schema-authn-context-mobileonefactor-unreg-2.0.xsd">
     <jaxb:schemaBindings>
-      <jaxb:package name="com.github.jinahya.scxml20.bind.ac.classes.mobileonefactorunregistered"/>
+      <jaxb:package name="com.github.jinahya.saml20.bind.authn.context.mobileonefactor.unreg"/>
     </jaxb:schemaBindings>
   </jaxb:bindings>
-
-
-
-  <jaxb:bindings namespace="urn:oasis:names:tc:SAML:2.0:ac:classes:MobileTwoFactorContract"
-                 schemaLocation="../xsd/saml-schema-authn-context-mobiletwofactor-reg-2.0.xsd">
+  <jaxb:bindings namespace="urn:oasis:names:tc:SAML:2.0:ac:classes:MobileTwoFactorContract" schemaLocation="../xsd/saml-schema-authn-context-mobiletwofactor-reg-2.0.xsd">
     <jaxb:schemaBindings>
-      <jaxb:package name="com.github.jinahya.scxml20.bind.ac.classes.mobiletwofactorcontract"/>
+      <jaxb:package name="com.github.jinahya.saml20.bind.authn.context.mobiletwofactor.reg"/>
     </jaxb:schemaBindings>
   </jaxb:bindings>
-  <jaxb:bindings namespace="urn:oasis:names:tc:SAML:2.0:ac:classes:MobileTwoFactorUnregistered"
-                 schemaLocation="../xsd/saml-schema-authn-context-mobiletwofactor-unreg-2.0.xsd">
+  <jaxb:bindings namespace="urn:oasis:names:tc:SAML:2.0:ac:classes:MobileTwoFactorUnregistered" schemaLocation="../xsd/saml-schema-authn-context-mobiletwofactor-unreg-2.0.xsd">
     <jaxb:schemaBindings>
-      <jaxb:package name="com.github.jinahya.scxml20.bind.ac.classes.mobiletwofactorunregistered"/>
+      <jaxb:package name="com.github.jinahya.saml20.bind.authn.context.mobiletwofactor.unreg"/>
     </jaxb:schemaBindings>
   </jaxb:bindings>
-
-
-  <jaxb:bindings namespace="urn:oasis:names:tc:SAML:2.0:ac:classes:NomadTelephony"
-                 schemaLocation="../xsd/saml-schema-authn-context-nomad-telephony-2.0.xsd">
+  <jaxb:bindings namespace="urn:oasis:names:tc:SAML:2.0:ac:classes:NomadTelephony" schemaLocation="../xsd/saml-schema-authn-context-nomad-telephony-2.0.xsd">
     <jaxb:schemaBindings>
-      <jaxb:package name="com.github.jinahya.scxml20.bind.ac.classes.nomadtelephony"/>
+      <jaxb:package name="com.github.jinahya.saml20.bind.authn.context.nomad.telephony"/>
     </jaxb:schemaBindings>
   </jaxb:bindings>
-
-  <jaxb:bindings namespace="urn:oasis:names:tc:SAML:2.0:ac:classes:Password"
-                 schemaLocation="../xsd/saml-schema-authn-context-pword-2.0.xsd">
+  <jaxb:bindings namespace="urn:oasis:names:tc:SAML:2.0:ac:classes:PersonalizedTelephony" schemaLocation="../xsd/saml-schema-authn-context-personal-telephony-2.0.xsd">
     <jaxb:schemaBindings>
-      <jaxb:package name="com.github.jinahya.scxml20.bind.ac.classes.password"/>
+      <jaxb:package name="com.github.jinahya.saml20.bind.authn.context.personal.telephony"/>
     </jaxb:schemaBindings>
   </jaxb:bindings>
-
-  <jaxb:bindings namespace="urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport"
-                 schemaLocation="../xsd/saml-schema-authn-context-ppt-2.0.xsd">
+  <jaxb:bindings namespace="urn:oasis:names:tc:SAML:2.0:ac:classes:PGP" schemaLocation="../xsd/saml-schema-authn-context-pgp-2.0.xsd">
     <jaxb:schemaBindings>
-      <jaxb:package name="com.github.jinahya.scxml20.bind.ac.classes.passwordprotectedtransport"/>
+      <jaxb:package name="com.github.jinahya.saml20.bind.authn.context.pgp"/>
     </jaxb:schemaBindings>
   </jaxb:bindings>
-
-  <jaxb:bindings namespace="urn:oasis:names:tc:SAML:2.0:ac:classes:PersonalizedTelephony"
-                 schemaLocation="../xsd/saml-schema-authn-context-personal-telephony-2.0.xsd">
+  <jaxb:bindings namespace="urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport" schemaLocation="../xsd/saml-schema-authn-context-ppt-2.0.xsd">
     <jaxb:schemaBindings>
-      <jaxb:package name="com.github.jinahya.scxml20.bind.ac.classes.personalizedtelephony"/>
+      <jaxb:package name="com.github.jinahya.saml20.bind.authn.context.ppt"/>
     </jaxb:schemaBindings>
   </jaxb:bindings>
-
-  <jaxb:bindings namespace="urn:oasis:names:tc:SAML:2.0:ac:classes:PGP"
-                 schemaLocation="../xsd/saml-schema-authn-context-pgp-2.0.xsd">
+  <jaxb:bindings namespace="urn:oasis:names:tc:SAML:2.0:ac:classes:Password" schemaLocation="../xsd/saml-schema-authn-context-pword-2.0.xsd">
     <jaxb:schemaBindings>
-      <jaxb:package name="com.github.jinahya.scxml20.bind.ac.classes.pgp"/>
+      <jaxb:package name="com.github.jinahya.saml20.bind.authn.context.pword"/>
     </jaxb:schemaBindings>
   </jaxb:bindings>
-
-  <jaxb:bindings namespace="urn:oasis:names:tc:SAML:2.0:ac:classes:PreviousSession"
-                 schemaLocation="../xsd/saml-schema-authn-context-session-2.0.xsd">
+  <jaxb:bindings namespace="urn:oasis:names:tc:SAML:2.0:ac:classes:PreviousSession" schemaLocation="../xsd/saml-schema-authn-context-session-2.0.xsd">
     <jaxb:schemaBindings>
-      <jaxb:package name="com.github.jinahya.scxml20.bind.ac.classes.session"/>
+      <jaxb:package name="com.github.jinahya.saml20.bind.authn.context.session"/>
     </jaxb:schemaBindings>
   </jaxb:bindings>
-
-  <jaxb:bindings namespace="urn:oasis:names:tc:SAML:2.0:ac:classes:SecureRemotePassword"
-                 schemaLocation="../xsd/saml-schema-authn-context-srp-2.0.xsd">
+  <jaxb:bindings namespace="urn:oasis:names:tc:SAML:2.0:ac:classes:Smartcard" schemaLocation="../xsd/saml-schema-authn-context-smartcard-2.0.xsd">
     <jaxb:schemaBindings>
-      <jaxb:package name="com.github.jinahya.scxml20.bind.ac.classes.secureremotepassword"/>
+      <jaxb:package name="com.github.jinahya.saml20.bind.authn.context.smartcard"/>
     </jaxb:schemaBindings>
   </jaxb:bindings>
-
-  <jaxb:bindings namespace="urn:oasis:names:tc:SAML:2.0:ac:classes:Smartcard"
-                 schemaLocation="../xsd/saml-schema-authn-context-smartcard-2.0.xsd">
+  <jaxb:bindings namespace="urn:oasis:names:tc:SAML:2.0:ac:classes:SmartcardPKI" schemaLocation="../xsd/saml-schema-authn-context-smartcardpki-2.0.xsd">
     <jaxb:schemaBindings>
-      <jaxb:package name="com.github.jinahya.scxml20.bind.ac.classes.smartcard"/>
+      <jaxb:package name="com.github.jinahya.saml20.bind.authn.context.smartcardpki"/>
     </jaxb:schemaBindings>
   </jaxb:bindings>
-  <jaxb:bindings namespace="urn:oasis:names:tc:SAML:2.0:ac:classes:SmartcardPKI"
-                 schemaLocation="../xsd/saml-schema-authn-context-smartcardpki-2.0.xsd">
+  <jaxb:bindings namespace="urn:oasis:names:tc:SAML:2.0:ac:classes:SoftwarePKI" schemaLocation="../xsd/saml-schema-authn-context-softwarepki-2.0.xsd">
     <jaxb:schemaBindings>
-      <jaxb:package name="com.github.jinahya.scxml20.bind.ac.classes.smartcardpki"/>
+      <jaxb:package name="com.github.jinahya.saml20.bind.authn.context.softwarepki"/>
     </jaxb:schemaBindings>
   </jaxb:bindings>
-
-  <jaxb:bindings namespace="urn:oasis:names:tc:SAML:2.0:ac:classes:SoftwarePKI"
-                 schemaLocation="../xsd/saml-schema-authn-context-softwarepki-2.0.xsd">
+  <jaxb:bindings namespace="urn:oasis:names:tc:SAML:2.0:ac:classes:SPKI" schemaLocation="../xsd/saml-schema-authn-context-spki-2.0.xsd">
     <jaxb:schemaBindings>
-      <jaxb:package name="com.github.jinahya.scxml20.bind.ac.classes.softwarepki"/>
+      <jaxb:package name="com.github.jinahya.saml20.bind.authn.context.spki"/>
     </jaxb:schemaBindings>
   </jaxb:bindings>
-  <jaxb:bindings namespace="urn:oasis:names:tc:SAML:2.0:ac:classes:SPKI"
-                 schemaLocation="../xsd/saml-schema-authn-context-spki-2.0.xsd">
+  <jaxb:bindings namespace="urn:oasis:names:tc:SAML:2.0:ac:classes:SecureRemotePassword" schemaLocation="../xsd/saml-schema-authn-context-srp-2.0.xsd">
     <jaxb:schemaBindings>
-      <jaxb:package name="com.github.jinahya.scxml20.bind.ac.classes.spki"/>
+      <jaxb:package name="com.github.jinahya.saml20.bind.authn.context.srp"/>
     </jaxb:schemaBindings>
   </jaxb:bindings>
-  <jaxb:bindings namespace="urn:oasis:names:tc:SAML:2.0:ac:classes:Telephony"
-                 schemaLocation="../xsd/saml-schema-authn-context-telephony-2.0.xsd">
+  <jaxb:bindings namespace="urn:oasis:names:tc:SAML:2.0:ac:classes:TLSClient" schemaLocation="../xsd/saml-schema-authn-context-sslcert-2.0.xsd">
     <jaxb:schemaBindings>
-      <jaxb:package name="com.github.jinahya.scxml20.bind.ac.classes.telephony"/>
+      <jaxb:package name="com.github.jinahya.saml20.bind.authn.context.sslcert"/>
     </jaxb:schemaBindings>
   </jaxb:bindings>
-  <jaxb:bindings namespace="urn:oasis:names:tc:SAML:2.0:ac:classes:TimeSyncToken"
-                 schemaLocation="../xsd/saml-schema-authn-context-timesync-2.0.xsd">
+  <jaxb:bindings namespace="urn:oasis:names:tc:SAML:2.0:ac:classes:Telephony" schemaLocation="../xsd/saml-schema-authn-context-telephony-2.0.xsd">
     <jaxb:schemaBindings>
-      <jaxb:package name="com.github.jinahya.scxml20.bind.ac.classes.timesynctoken"/>
+      <jaxb:package name="com.github.jinahya.saml20.bind.authn.context.telephony"/>
     </jaxb:schemaBindings>
   </jaxb:bindings>
-  <jaxb:bindings namespace="urn:oasis:names:tc:SAML:2.0:ac:classes:TLSClient"
-                 schemaLocation="../xsd/saml-schema-authn-context-sslcert-2.0.xsd">
+  <jaxb:bindings namespace="urn:oasis:names:tc:SAML:2.0:ac:classes:TimeSyncToken" schemaLocation="../xsd/saml-schema-authn-context-timesync-2.0.xsd">
     <jaxb:schemaBindings>
-      <jaxb:package name="com.github.jinahya.scxml20.bind.ac.classes.tlsclient"/>
+      <jaxb:package name="com.github.jinahya.saml20.bind.authn.context.timesync"/>
     </jaxb:schemaBindings>
   </jaxb:bindings>
-  <jaxb:bindings namespace="urn:oasis:names:tc:SAML:2.0:ac:classes:X509"
-                 schemaLocation="../xsd/saml-schema-authn-context-x509-2.0.xsd">
+  <jaxb:bindings namespace="urn:oasis:names:tc:SAML:2.0:ac:classes:X509" schemaLocation="../xsd/saml-schema-authn-context-x509-2.0.xsd">
     <jaxb:schemaBindings>
-      <jaxb:package name="com.github.jinahya.scxml20.bind.ac.classes.x509"/>
+      <jaxb:package name="com.github.jinahya.saml20.bind.authn.context.x509"/>
     </jaxb:schemaBindings>
   </jaxb:bindings>
-  <jaxb:bindings namespace="urn:oasis:names:tc:SAML:2.0:ac:classes:XMLDSig"
-                 schemaLocation="../xsd/saml-schema-authn-context-xmldsig-2.0.xsd">
+  <jaxb:bindings namespace="urn:oasis:names:tc:SAML:2.0:ac:classes:XMLDSig" schemaLocation="../xsd/saml-schema-authn-context-xmldsig-2.0.xsd">
     <jaxb:schemaBindings>
-      <jaxb:package name="com.github.jinahya.scxml20.bind.ac.classes.xmldsig"/>
+      <jaxb:package name="com.github.jinahya.saml20.bind.authn.context.xmldsig"/>
     </jaxb:schemaBindings>
   </jaxb:bindings>
-  <jaxb:bindings namespace="urn:oasis:names:tc:SAML:2.0:assertion"
-                 schemaLocation="../xsd/saml-schema-assertion-2.0.xsd">
+  <jaxb:bindings namespace="urn:oasis:names:tc:SAML:2.0:profiles:attribute:DCE" schemaLocation="../xsd/saml-schema-dce-2.0.xsd">
     <jaxb:schemaBindings>
-      <jaxb:package name="com.github.jinahya.scxml20.bind.assertion"/>
+      <jaxb:package name="com.github.jinahya.saml20.bind.dce"/>
     </jaxb:schemaBindings>
   </jaxb:bindings>
-  <jaxb:bindings namespace="urn:oasis:names:tc:SAML:2.0:metadata"
-                 schemaLocation="../xsd/saml-schema-metadata-2.0.xsd">
+  <jaxb:bindings namespace="urn:oasis:names:tc:SAML:2.0:profiles:SSO:ecp" schemaLocation="../xsd/saml-schema-ecp-2.0.xsd">
     <jaxb:schemaBindings>
-      <jaxb:package name="com.github.jinahya.scxml20.bind.metadata"/>
+      <jaxb:package name="com.github.jinahya.saml20.bind.ecp"/>
     </jaxb:schemaBindings>
   </jaxb:bindings>
-  <jaxb:bindings namespace="urn:oasis:names:tc:SAML:2.0:profiles:attribute:DCE"
-                 schemaLocation="../xsd/saml-schema-dce-2.0.xsd">
+  <jaxb:bindings namespace="urn:oasis:names:tc:SAML:2.0:metadata" schemaLocation="../xsd/saml-schema-metadata-2.0.xsd">
     <jaxb:schemaBindings>
-      <jaxb:package name="com.github.jinahya.scxml20.bind.profiles.attribute.dce"/>
+      <jaxb:package name="com.github.jinahya.saml20.bind.metadata"/>
     </jaxb:schemaBindings>
   </jaxb:bindings>
-  <jaxb:bindings namespace="urn:oasis:names:tc:SAML:2.0:profiles:SSO:ecp"
-                 schemaLocation="../xsd/saml-schema-ecp-2.0.xsd">
+  <jaxb:bindings namespace="urn:oasis:names:tc:SAML:2.0:protocol" schemaLocation="../xsd/saml-schema-protocol-2.0.xsd">
     <jaxb:schemaBindings>
-      <jaxb:package name="com.github.jinahya.scxml20.bind.profiles.sso.ecp"/>
-    </jaxb:schemaBindings>
-  </jaxb:bindings>
-  <jaxb:bindings namespace="urn:oasis:names:tc:SAML:2.0:protocol"
-                 schemaLocation="../xsd/saml-schema-protocol-2.0.xsd">
-    <jaxb:schemaBindings>
-      <jaxb:package name="com.github.jinahya.scxml20.bind.protocol"/>
+      <jaxb:package name="com.github.jinahya.saml20.bind.protocol"/>
     </jaxb:schemaBindings>
   </jaxb:bindings>
 </jaxb:bindings>
