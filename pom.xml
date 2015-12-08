@@ -24,9 +24,9 @@
   </prerequisites>
 
   <scm>
-    <connection>scm:git:git@github.com:jinahya/saml20-bind.git</connection>
-    <developerConnection>scm:git:git@github.com:jinahya/saml20-bind.git</developerConnection>
-    <url>https://github.com/jinahya/saml20-bind</url>
+    <connection>scm:git:git@github.com:jinahya/${project.artifactId}.git</connection>
+    <developerConnection>scm:git:git@github.com:jinahya/${project.artifactId}.git</developerConnection>
+    <url>https://github.com/jinahya/${project.artifactId}</url>
     <tag>HEAD</tag>
   </scm>
   <issueManagement>
@@ -80,7 +80,6 @@
           <artifactId>maven-jar-plugin</artifactId>
           <version>2.6</version>
         </plugin>
-
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-javadoc-plugin</artifactId>
@@ -274,7 +273,7 @@
             <id>check-against-java17</id>
             <phase>test</phase>
             <goals>
-              <!--<goal>check</goal>-->
+              <goal>check</goal>
             </goals>
             <configuration>
               <signature>
@@ -494,34 +493,6 @@
         </configuration>
       </plugin>
       <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-shade-plugin</artifactId>
-        <version>2.4.2</version>
-        <executions>
-          <execution>
-            <phase>package</phase>
-            <goals>
-              <!--<goal>shade</goal>-->
-            </goals>
-            <configuration>
-              <artifactSet>
-                <excludes>
-                  <exclude>com.github.jinahya:soap-envelop-bind</exclude>
-                  <exluce>com.github.jinahya:xmldsig-core-bind</exluce>
-                  <exluce>com.github.jinahya:xmlenc-core-bind</exluce>
-                </excludes>
-              </artifactSet>
-              <!--              <relocations>
-                <relocation>
-                  <pattern>generated</pattern>
-                  <shadedPattern>com.github.jinahya.saxml20.bind</shadedPattern>
-                </relocation>
-              </relocations>-->
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
         <groupId>com.github.wvengen</groupId>
         <artifactId>proguard-maven-plugin</artifactId>
         <version>2.0.11</version>
@@ -530,7 +501,7 @@
             <id>proguard</id>
             <phase>package</phase>
             <goals>
-              <goal>proguard</goal>
+              <!--<goal>proguard</goal>-->
             </goals>
           </execution>
         </executions>
