@@ -23,6 +23,13 @@
     <maven>3.3.9</maven>
   </prerequisites>
 
+  <distributionManagement>
+    <site>
+      <id>github</id>
+      <url>https://jinahya.github.io/${project.artifactId}/sites/${project.version}</url>
+    </site>
+  </distributionManagement>
+
   <scm>
     <connection>scm:git:git@github.com:jinahya/${project.artifactId}.git</connection>
     <developerConnection>scm:git:git@github.com:jinahya/${project.artifactId}.git</developerConnection>
